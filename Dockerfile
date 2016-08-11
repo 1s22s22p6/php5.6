@@ -6,3 +6,4 @@ RUN apt-get update \
     && docker-php-ext-install -j$(nproc) gd \
     && printf "\n" | pecl install memcached \
     && docker-php-ext-enable memcached
+    
