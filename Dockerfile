@@ -4,6 +4,6 @@ RUN apt-get update \
     && docker-php-ext-install -j$(nproc) iconv mcrypt mysqli mbstring \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
-    && printf "\n" | pecl install memcached \
-    && docker-php-ext-enable memcached gd iconv mcrypt mysqli mbstring
-    
+    && printf "\n" | pecl install memcache \
+    && docker-php-ext-enable memcache gd iconv mcrypt mysqli mbstring
+RUN echo 'extension=memcache.so' > /usr/local/etc/php/conf.d/docker-php-ext-memcached.ini
